@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //スライド画像を表示
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
