@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     //スライド画像を表示
-    
+    @IBOutlet weak var imageView: UIImageView!
     
     
     

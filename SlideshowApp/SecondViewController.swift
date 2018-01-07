@@ -10,6 +10,12 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    // 拡大画像を設置
+    @IBOutlet weak var imageViewZoomUp: UIImageView!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
