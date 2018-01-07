@@ -10,7 +10,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    // 拡大画像を設置
+    // 拡大画像の枠を設置
     @IBOutlet weak var imageViewZoomUp: UIImageView!
     
     
