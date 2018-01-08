@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
     
+    // 画像ファイルの配列
+    let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
+    
     // 画像を表示するメソッド
     func displayImage() {
         
@@ -26,9 +29,8 @@ class ViewController: UIViewController {
         if imageNo > 4 {
             imageNo = 0
         }
-        
-        // 画像ファイルの配列とインデックスの指定
-        let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
+
+        // 画像ファイルのインデックスの指定
         let imageName = imageArray[imageNo]
         
         // 指定されたインデックスの画像を読み込んで表示
