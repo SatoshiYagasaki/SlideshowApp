@@ -46,6 +46,9 @@
                                     <constraint firstAttribute="width" constant="70" id="w6L-Xt-Ixd"/>
                                 </constraints>
                                 <state key="normal" title="再生/停止"/>
+                                <connections>
+                                    <action selector="onTapStartStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhZ-Ph-zlf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-Tl-htG">
                                 <rect key="frame" x="242.5" y="428.5" width="70" height="30"/>

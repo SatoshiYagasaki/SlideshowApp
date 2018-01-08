@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     // 画像をひとつ戻る
     func prevImage() {
         
@@ -55,6 +56,18 @@ class ViewController: UIViewController {
             imageNo = 4
         }
     }
+    
+   
+    // 画像の自動送り表示
+    func autoNextImage() {
+        nextImage()
+        displayImage()
+    }
+    
+    
+    // スライド動作判定用の変数
+    var movingStatus = false
+    var timer: Timer! = nil
     
     
     // 初期読み込み
@@ -75,23 +88,59 @@ class ViewController: UIViewController {
     // 「進む」ボタンをタップしたときの動作
     @IBAction func onTapNext(_ sender: Any) {
     
-        // 画像のひとつ進むを実行
-        nextImage()
+        // スライド停止中だけ動作する
+        if movingStatus == false {
         
-        // 画像表示を実行
-        displayImage()
+            // 画像のひとつ進むを実行
+            nextImage()
+        
+            // 画像表示を実行
+            displayImage()
+    
+        }
     }
     
     
     // 「進む」ボタンをタップしたときの動作
     @IBAction func onTapPrev(_ sender: Any) {
         
-        // 画像のひとつ戻るを実行
-        prevImage()
+        // スライド停止中だけ動作する
+        if movingStatus == false {
+            
+            // 画像のひとつ戻るを実行
+            prevImage()
         
-        // 画像表示を実行
-        displayImage()
+            // 画像表示を実行
+            displayImage()
+        }
     }
+    
+    
+    // 「再生/停止」ボタンをタップしたときの動作
+    @IBAction func onTapStartStop(_ sender: Any) {
+        
+        // 「再生」ボタンをタップしたときの動作
+        if movingStatus == false {
+            
+            // スライド動作のステータスを変更
+            movingStatus = true
+            
+            // 2秒ごとに画像の送り表示を実行
+            self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoNextImage), userInfo: nil, repeats: true)
+            
+        // 「停止」ボタンをタップしたときの動作
+        } else {
 
+            // スライド動作のステータスを変更
+            movingStatus = false
+            
+            // 画像の送り表示を停止
+            self.timer.invalidate()
+            self.timer = nil
+            
+        }
+        
+    }
+    
 }
 
