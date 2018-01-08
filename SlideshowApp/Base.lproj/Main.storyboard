@@ -35,6 +35,9 @@
                                     <constraint firstAttribute="width" constant="70" id="mbR-uh-brA"/>
                                 </constraints>
                                 <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="onTapPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBT-pF-AWm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkj-2T-xor">
                                 <rect key="frame" x="152.5" y="428.5" width="70" height="30"/>
@@ -51,6 +54,9 @@
                                     <constraint firstAttribute="height" constant="30" id="klG-hf-YVq"/>
                                 </constraints>
                                 <state key="normal" title="進む"/>
+                                <connections>
+                                    <action selector="onTapNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="30P-J2-Gw6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

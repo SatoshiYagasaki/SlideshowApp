@@ -40,8 +40,8 @@ class ViewController: UIViewController {
         imageNo += 1
         
         // 画像ファイル配列インデックスの範囲設定
-        if imageNo < 0 {
-            imageNo = 4
+        if imageNo > 4 {
+            imageNo = 0
         }
     }
     
@@ -51,8 +51,8 @@ class ViewController: UIViewController {
         imageNo -= 1
 
         // 画像ファイル配列インデックスの範囲設定
-        if imageNo > 4 {
-            imageNo = 0
+        if imageNo < 0 {
+            imageNo = 4
         }
     }
     
@@ -71,6 +71,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // 「進む」ボタンをタップしたときの動作
+    @IBAction func onTapNext(_ sender: Any) {
+    
+        // 画像のひとつ進むを実行
+        nextImage()
+        
+        // 画像表示を実行
+        displayImage()
+    }
+    
+    
+    // 「進む」ボタンをタップしたときの動作
+    @IBAction func onTapPrev(_ sender: Any) {
+        
+        // 画像のひとつ戻るを実行
+        prevImage()
+        
+        // 画像表示を実行
+        displayImage()
+    }
 
 }
 
