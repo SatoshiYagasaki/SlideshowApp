@@ -21,12 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-F8-7CN">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-F8-7CN">
                                 <rect key="frame" x="112.5" y="283.5" width="150" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Cgq-9J-Pm0"/>
                                     <constraint firstAttribute="width" constant="150" id="Z8a-F9-vfF"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="J9P-Na-Le0" appends="YES" id="Lyj-1c-8Qm"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-EA-Nah">
                                 <rect key="frame" x="62.5" y="428.5" width="70" height="30"/>
@@ -76,9 +80,15 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="zQh-F8-7CN" id="ncN-AR-MOE"/>
+                        <segue destination="EBc-YX-fWM" kind="show" identifier="toSecondViewController" id="uxB-Zr-ff2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="J9P-Na-Le0">
+                    <connections>
+                        <action selector="onTapImage:" destination="BYZ-38-t0r" id="UOq-DC-SxN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-583" y="154"/>
         </scene>
@@ -101,7 +111,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-1r-Go7">
                                 <rect key="frame" x="164" y="442" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="Ufl-uL-l9W" kind="unwind" unwindAction="unwind:" id="gQq-Jc-BSi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +124,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-a1-TFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ufl-uL-l9W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="193" y="153"/>
         </scene>

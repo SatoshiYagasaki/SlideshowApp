@@ -137,9 +137,24 @@ class ViewController: UIViewController {
             // 画像の送り表示を停止
             self.timer.invalidate()
             self.timer = nil
-            
         }
-        
+    }
+    
+    
+    // 画像をタップしたときの動作
+    @IBAction func onTapImage(_ sender: Any) {
+    
+        // スライド停止中だけ動作する
+        if movingStatus == false {
+            
+            // 画面遷移するセグエ
+            performSegue(withIdentifier: "toSecondViewController", sender: nil)
+        }
+    }
+    
+    
+    // 遷移先から戻るセグエ
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
 }
