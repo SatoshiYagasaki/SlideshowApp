@@ -13,23 +13,18 @@ class ViewController: UIViewController {
     // スライド画像を設置
     @IBOutlet weak var imageView: UIImageView!
     
+    
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
+    
     
     // 画像ファイルの配列
     let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
     
-    // 画像を表示するメソッド
+    
+    // 画像を表示
     func displayImage() {
-        
-        // 画像ファイル配列インデックスの範囲設定
-        if imageNo < 0 {
-            imageNo = 4
-        }
-        if imageNo > 4 {
-            imageNo = 0
-        }
-
+    
         // 画像ファイルのインデックスの指定
         let imageName = imageArray[imageNo]
         
@@ -38,11 +33,36 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
+    
+    // 画像をひとつ進む
+    func nextImage() {
+        
+        imageNo += 1
+        
+        // 画像ファイル配列インデックスの範囲設定
+        if imageNo < 0 {
+            imageNo = 4
+        }
+    }
+    
+    // 画像をひとつ戻る
+    func prevImage() {
+        
+        imageNo -= 1
+
+        // 画像ファイル配列インデックスの範囲設定
+        if imageNo > 4 {
+            imageNo = 0
+        }
+    }
+    
+    
+    // 初期読み込み
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        // 画像を表示するメソッドを実行
+        // 画像表示を実行
         displayImage()
     }
         
