@@ -160,7 +160,7 @@ class ViewController: UIViewController {
         let secondViewController:SecondViewController = segue.destination as! SecondViewController
         
         // 遷移先のSecondViewControllerのimageZoomUp.imageに表示されている画像（imageView.image）を代入
-        secondViewController.imageViewZoomUp.image = imageView.image
+        secondViewController.imageViewZoomUp.image = UIImage(named: imageArray[imageNo])
     }
     
     
