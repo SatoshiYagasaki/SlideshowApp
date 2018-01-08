@@ -153,7 +153,18 @@ class ViewController: UIViewController {
     }
     
     
-    // 遷移先から戻るセグエ
+    // SecondViewControllerに画像を渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // segueから遷移先のSecondViewControllerを取得
+        let secondViewController:SecondViewController = segue.destination as! SecondViewController
+        
+        // 遷移先のSecondViewControllerのimageZoomUp.imageに表示されている画像（imageView.image）を代入
+        secondViewController.imageViewZoomUp.image = imageView.image
+    }
+    
+    
+    // 遷移先から戻ったときに呼ばれるセグエ
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
