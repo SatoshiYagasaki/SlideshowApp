@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-F8-7CN">
-                                <rect key="frame" x="112.5" y="283.5" width="150" height="100"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-F8-7CN">
+                                <rect key="frame" x="85" y="234" width="150" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Cgq-9J-Pm0"/>
@@ -33,7 +34,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-EA-Nah">
-                                <rect key="frame" x="62.5" y="428.5" width="70" height="30"/>
+                                <rect key="frame" x="35" y="379" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dhi-ns-aTs"/>
                                     <constraint firstAttribute="width" constant="70" id="mbR-uh-brA"/>
@@ -44,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkj-2T-xor">
-                                <rect key="frame" x="152.5" y="428.5" width="70" height="30"/>
+                                <rect key="frame" x="125" y="379" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="e89-aQ-b7w"/>
                                     <constraint firstAttribute="width" constant="70" id="w6L-Xt-Ixd"/>
@@ -55,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-Tl-htG">
-                                <rect key="frame" x="242.5" y="428.5" width="70" height="30"/>
+                                <rect key="frame" x="215" y="379" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="8Yy-5U-EmX"/>
                                     <constraint firstAttribute="height" constant="30" id="klG-hf-YVq"/>
@@ -101,16 +102,18 @@
                         <viewControllerLayoutGuide type="bottom" id="LcZ-1n-Gew"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iLB-A3-5lh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xiX-2h-m9U">
-                                <rect key="frame" x="67" y="268" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xiX-2h-m9U">
+                                <rect key="frame" x="16" y="20" width="288" height="498"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-1r-Go7">
-                                <rect key="frame" x="164" y="442" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-1r-Go7">
+                                <rect key="frame" x="125" y="528" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JnL-A0-Jxn"/>
+                                    <constraint firstAttribute="width" constant="70" id="s63-Lm-fhQ"/>
+                                </constraints>
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <segue destination="Ufl-uL-l9W" kind="unwind" unwindAction="unwind:" id="gQq-Jc-BSi"/>
@@ -118,6 +121,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LcZ-1n-Gew" firstAttribute="top" secondItem="xiX-2h-m9U" secondAttribute="bottom" constant="50" id="1tl-XL-6Do"/>
+                            <constraint firstItem="xiX-2h-m9U" firstAttribute="leading" secondItem="iLB-A3-5lh" secondAttribute="leadingMargin" id="A63-cD-S0D"/>
+                            <constraint firstItem="Azh-1r-Go7" firstAttribute="top" secondItem="xiX-2h-m9U" secondAttribute="bottom" constant="10" id="IMa-f9-kjr"/>
+                            <constraint firstItem="xiX-2h-m9U" firstAttribute="top" secondItem="ybg-5T-cEe" secondAttribute="bottom" id="YfE-ze-31B"/>
+                            <constraint firstItem="Azh-1r-Go7" firstAttribute="centerX" secondItem="iLB-A3-5lh" secondAttribute="centerX" id="YxE-ZH-Kf2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xiX-2h-m9U" secondAttribute="trailing" id="teV-sn-p8I"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageViewZoomUp" destination="xiX-2h-m9U" id="5ZS-s0-CnO"/>
