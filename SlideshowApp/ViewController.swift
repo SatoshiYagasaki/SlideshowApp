@@ -148,7 +148,7 @@ class ViewController: UIViewController {
         if movingStatus == false {
             
             // 画面遷移するセグエ
-            performSegue(withIdentifier: "toSecondViewController", sender: nil)
+            performSegue(withIdentifier: "toSecondViewController", sender: self.imageNo)
         }
     }
     
@@ -159,8 +159,8 @@ class ViewController: UIViewController {
         // segueから遷移先のSecondViewControllerを取得
         let secondViewController:SecondViewController = segue.destination as! SecondViewController
         
-        // 遷移先のSecondViewControllerのimageZoomUp.imageに表示されている画像（imageView.image）を代入
-        secondViewController.imageViewZoomUp.image = UIImage(named: imageArray[imageNo])
+        // 遷移先のSecondViewControllerのimageNoに表示されている画像のインデックスを代入
+        secondViewController.imageNo = imageNo
     }
     
     
