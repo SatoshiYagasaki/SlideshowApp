@@ -10,19 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // スライド画像を設置
+    // スライド画像のプロパティ
     @IBOutlet weak var imageView: UIImageView!
+    
     
     // ボタンのプロパティ
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
-        
+    
+    
     // 画像ファイルの配列
     let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
+    
     
     // 画像を表示
     func displayImage() {
@@ -35,6 +39,7 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
+    
     // 画像をひとつ進む
     func nextImage() {
 
@@ -45,6 +50,7 @@ class ViewController: UIViewController {
             imageNo = 0
         }
     }
+    
     
     // 画像をひとつ戻る
     func prevImage() {
@@ -57,6 +63,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     // 画像の自動送り表示
     func autoNextImage() {
         
@@ -64,11 +71,13 @@ class ViewController: UIViewController {
         displayImage()
     }
     
+    
     // スライド動作判定用の変数
     var movingStatus = false
     var timer: Timer! = nil
     
-    // 初期読み込み
+    
+    // 初期読み込み（デフォルト）
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -76,13 +85,16 @@ class ViewController: UIViewController {
         // 画像表示を実行
         displayImage()
     }
-        
+    
+    
+    // デフォルト
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-        // 「進む」ボタンをタップしたときの動作
+    
+    // 「進む」ボタンをタップしたときの動作
     @IBAction func onTapNext(_ sender: Any) {
     
         // 画像のひとつ進むを実行
@@ -91,6 +103,7 @@ class ViewController: UIViewController {
         // 画像表示を実行
         displayImage()
     }
+    
     
     // 「戻る」ボタンをタップしたときの動作
     @IBAction func onTapPrev(_ sender: Any) {
@@ -101,7 +114,8 @@ class ViewController: UIViewController {
         // 画像表示を実行
         displayImage()
     }
-        
+    
+    
     // 「再生/停止」ボタンをタップしたときの動作
     @IBAction func onTapStartStop(_ sender: Any) {
         
@@ -140,10 +154,11 @@ class ViewController: UIViewController {
         }
     }
     
+    
     // 画像をタップしたときの動作
     @IBAction func onTapImage(_ sender: Any) {
     
-        // スライドショー中に停止した場合のみ
+        // スライドショー中にタップした場合のみ
         if movingStatus == true {
         
             // スライド動作のステータスを変更
@@ -156,7 +171,7 @@ class ViewController: UIViewController {
             // 「再生/停止」ボタンの表示を「停止」に変更
             startStopButton.setTitle("再生", for: .normal)
         
-            // 画像の送り表示を停止(スライドショー中に停止した場合のみ）
+            // 画像の送り表示を停止
             self.timer.invalidate()
             self.timer = nil
         }
@@ -165,15 +180,20 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toSecondViewController", sender: nil)
     }
     
+    
     // SecondViewControllerに画像を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // 画像ファイル名を配列から特定
+        let imageName = imageArray[imageNo]
         
         // segueから遷移先のSecondViewControllerを取得
         let secondViewController:SecondViewController = segue.destination as! SecondViewController
         
-        // 遷移先のSecondViewControllerのimageNoに表示されている画像のインデックスを代入
-        secondViewController.imageNo = imageNo
+        // 遷移先のSecondViewControllerに画像ファイル名を渡す
+        secondViewController.zoomUpImageName = imageName
     }
+    
     
     // 遷移先から戻ったときに呼ばれるセグエ
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

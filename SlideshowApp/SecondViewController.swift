@@ -10,35 +10,26 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    // 拡大画像の枠を設置
+    // 拡大画像のプロパティ
     @IBOutlet weak var imageViewZoomUp: UIImageView!
     
 
-    // 画像ファイル配列インデックスの変数
-    var imageNo = 0
+    // 拡大画像ファイル名の変数
+    var zoomUpImageName = ""
     
-    // 画像ファイルの配列
-    let zoomUpImageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
     
-    // 拡大画像を表示
-    func displayZoomUoImage () {
-        
-        // 拡大画像の変数設定
-        let zoomUpImageName = zoomUpImageArray[imageNo]
-    
-        // 指定された拡大画像を読み込んで表示
-        let zoomUpImage = UIImage(named: zoomUpImageName)
-        imageViewZoomUp.image = zoomUpImage
-    }
-        
+    // 初期読み込み（デフォルト）
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     
         // 拡大画面表示を実行
-        displayZoomUoImage()
+        let zoomUpImage = UIImage(named: zoomUpImageName)
+        imageViewZoomUp.image = zoomUpImage
     }
 
+    
+    // デフォルト
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
