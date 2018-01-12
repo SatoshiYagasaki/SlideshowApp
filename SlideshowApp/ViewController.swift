@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+    // ボタンのプロパティ
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
     
@@ -122,6 +128,13 @@ class ViewController: UIViewController {
         // 「再生」ボタンをタップしたときの動作
         if movingStatus == false {
             
+            // 「進む」「戻る」ボタンを無効化
+            nextButton.isEnabled = false
+            prevButton.isEnabled = false
+            
+            // 「再生/停止」ボタンの表示を「停止」に変更
+            startStopButton.setTitle("停止", for: .normal)
+            
             // スライド動作のステータスを変更
             movingStatus = true
             
@@ -133,6 +146,13 @@ class ViewController: UIViewController {
 
             // スライド動作のステータスを変更
             movingStatus = false
+            
+            // 「進む」「戻る」ボタンを有効化
+            nextButton.isEnabled = true
+            prevButton.isEnabled = true
+           
+            // 「再生/停止」ボタンの表示を「停止」に変更
+            startStopButton.setTitle("再生", for: .normal)
             
             // 画像の送り表示を停止
             self.timer.invalidate()
