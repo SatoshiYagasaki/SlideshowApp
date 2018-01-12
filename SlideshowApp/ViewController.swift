@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
-    
+        
     // 画像ファイルの配列
     let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
     
@@ -143,22 +143,26 @@ class ViewController: UIViewController {
     // 画像をタップしたときの動作
     @IBAction func onTapImage(_ sender: Any) {
     
-        // スライド動作のステータスを変更
-        movingStatus = false
+        // スライドショー中に停止した場合のみ
+        if movingStatus == true {
         
-        // 「進む」「戻る」ボタンを有効化
-        nextButton.isEnabled = true
-        prevButton.isEnabled = true
+            // スライド動作のステータスを変更
+            movingStatus = false
         
-        // 「再生/停止」ボタンの表示を「停止」に変更
-        startStopButton.setTitle("再生", for: .normal)
+            // 「進む」「戻る」ボタンを有効化
+            nextButton.isEnabled = true
+            prevButton.isEnabled = true
         
-        // 画像の送り表示を停止
-        self.timer.invalidate()
-        self.timer = nil
+            // 「再生/停止」ボタンの表示を「停止」に変更
+            startStopButton.setTitle("再生", for: .normal)
+        
+            // 画像の送り表示を停止(スライドショー中に停止した場合のみ）
+            self.timer.invalidate()
+            self.timer = nil
+        }
         
         // 画面遷移するセグエ
-        performSegue(withIdentifier: "toSecondViewController", sender: self.imageNo)
+        performSegue(withIdentifier: "toSecondViewController", sender: nil)
     }
     
     // SecondViewControllerに画像を渡す
@@ -170,7 +174,6 @@ class ViewController: UIViewController {
         // 遷移先のSecondViewControllerのimageNoに表示されている画像のインデックスを代入
         secondViewController.imageNo = imageNo
     }
-    
     
     // 遷移先から戻ったときに呼ばれるセグエ
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

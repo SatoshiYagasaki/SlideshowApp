@@ -17,10 +17,8 @@ class SecondViewController: UIViewController {
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
     
-    
     // 画像ファイルの配列
     let zoomUpImageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
-    
     
     // 拡大画像を表示
     func displayZoomUoImage () {
