@@ -13,20 +13,16 @@ class ViewController: UIViewController {
     // スライド画像を設置
     @IBOutlet weak var imageView: UIImageView!
     
-    
     // ボタンのプロパティ
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
-    
     // 画像ファイル配列インデックスの変数
     var imageNo = 0
     
-    
     // 画像ファイルの配列
     let imageArray = ["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"]
-    
     
     // 画像を表示
     func displayImage() {
@@ -39,10 +35,9 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
-    
     // 画像をひとつ進む
     func nextImage() {
-        
+
         imageNo += 1
         
         // 画像ファイル配列インデックスの範囲設定
@@ -50,7 +45,6 @@ class ViewController: UIViewController {
             imageNo = 0
         }
     }
-    
     
     // 画像をひとつ戻る
     func prevImage() {
@@ -63,18 +57,16 @@ class ViewController: UIViewController {
         }
     }
     
-   
     // 画像の自動送り表示
     func autoNextImage() {
+        
         nextImage()
         displayImage()
     }
     
-    
     // スライド動作判定用の変数
     var movingStatus = false
     var timer: Timer! = nil
-    
     
     // 初期読み込み
     override func viewDidLoad() {
@@ -90,38 +82,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
-    // 「進む」ボタンをタップしたときの動作
+        // 「進む」ボタンをタップしたときの動作
     @IBAction func onTapNext(_ sender: Any) {
     
-        // スライド停止中だけ動作する
-        if movingStatus == false {
+        // 画像のひとつ進むを実行
+        nextImage()
         
-            // 画像のひとつ進むを実行
-            nextImage()
-        
-            // 画像表示を実行
-            displayImage()
-    
-        }
+        // 画像表示を実行
+        displayImage()
     }
     
-    
-    // 「進む」ボタンをタップしたときの動作
+    // 「戻る」ボタンをタップしたときの動作
     @IBAction func onTapPrev(_ sender: Any) {
         
-        // スライド停止中だけ動作する
-        if movingStatus == false {
-            
-            // 画像のひとつ戻るを実行
-            prevImage()
+        // 画像のひとつ戻るを実行
+        prevImage()
         
-            // 画像表示を実行
-            displayImage()
-        }
+        // 画像表示を実行
+        displayImage()
     }
-    
-    
+        
     // 「再生/停止」ボタンをタップしたときの動作
     @IBAction func onTapStartStop(_ sender: Any) {
         
@@ -160,18 +140,26 @@ class ViewController: UIViewController {
         }
     }
     
-    
     // 画像をタップしたときの動作
     @IBAction func onTapImage(_ sender: Any) {
     
-        // スライド停止中だけ動作する
-        if movingStatus == false {
-            
-            // 画面遷移するセグエ
-            performSegue(withIdentifier: "toSecondViewController", sender: self.imageNo)
-        }
+        // スライド動作のステータスを変更
+        movingStatus = false
+        
+        // 「進む」「戻る」ボタンを有効化
+        nextButton.isEnabled = true
+        prevButton.isEnabled = true
+        
+        // 「再生/停止」ボタンの表示を「停止」に変更
+        startStopButton.setTitle("再生", for: .normal)
+        
+        // 画像の送り表示を停止
+        self.timer.invalidate()
+        self.timer = nil
+        
+        // 画面遷移するセグエ
+        performSegue(withIdentifier: "toSecondViewController", sender: self.imageNo)
     }
-    
     
     // SecondViewControllerに画像を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
